@@ -51,7 +51,7 @@ public class CalculadoraTest {
 		try {
 			int divisao = calc.divisao(8, 0);
 			fail("Exceção não lançada");
-		}catch (ArithmeticException e) {
+		} catch (ArithmeticException e) {
 			assertEquals("/ by zero", e.getMessage());
 		}		
 	}
@@ -60,6 +60,12 @@ public class CalculadoraTest {
 	public void testDivisaoPorZeroComAssertThrows() {
 		assertThrows(ArithmeticException.class,
 				() -> calc.divisao(8, 0));
+	}
+	
+	@Test
+	public void testSomatoria() {
+		int somatoria = calc.somatoria(5);
+		assertTrue(15 == somatoria);
 	}
 
 }
