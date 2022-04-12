@@ -63,4 +63,17 @@ public class CarrinhoTest {
 		assertTrue(0 == carrinho.getQtdeItems());
 	}
 	
+	@Test
+	public void testEsvaziarCarrinho() {
+		Produto produto1 = new Produto("Título produto 1", 100.00);
+		Produto produto2 = new Produto("Título produto 2", 200.00);
+		
+		carrinho.addItem(produto1);
+		carrinho.addItem(produto2);
+		
+		carrinho.esvazia();
+		
+		assertTrue(0 == carrinho.getQtdeItems());
+	}
+	
 }
