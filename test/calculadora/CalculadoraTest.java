@@ -41,6 +41,12 @@ public class CalculadoraTest {
 	}
 	
 	@Test
+	public void testMultiplicacaoDoisNumeros() {
+		int multiplicacao = calc.multiplicacao(5, 2);
+		assertTrue(10 == multiplicacao);
+	}
+	
+	@Test
 	public void testDivisaoPorZero() {
 		try {
 			int divisao = calc.divisao(8, 0);
