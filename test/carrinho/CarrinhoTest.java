@@ -1,6 +1,7 @@
 package carrinho;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.Before;
@@ -45,6 +46,21 @@ public class CarrinhoTest {
 		
 		assertThrows(ProdutoNaoEncontradoException.class,
 				() -> carrinho.removeItem(produto1));
+	}
+	
+	@Test
+	public void testRemoverUmProduto() {
+		Produto produto1 = new Produto("Título produto 1", 100.00);
+		
+		carrinho.addItem(produto1);
+		
+		try {
+			carrinho.removeItem(produto1);
+		} catch (ProdutoNaoEncontradoException e) {
+			fail();
+		}
+		
+		assertTrue(0 == carrinho.getQtdeItems());
 	}
 	
 }
