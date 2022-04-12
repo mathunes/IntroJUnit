@@ -68,4 +68,10 @@ public class CalculadoraTest {
 		assertTrue(15 == somatoria);
 	}
 
+	@Test
+	public void testEhPositivo() {
+		boolean ehPositivo = calc.ehPositivo(10);
+		assertTrue(ehPositivo);
+	}
+	
 }
