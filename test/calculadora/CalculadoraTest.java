@@ -25,7 +25,13 @@ public class CalculadoraTest {
 	@Test
 	public void testSomaDoisNumeros() {
 		int soma = calc.soma(4, 5);		
-		Assertions.assertEquals(9, soma);		
+		assertEquals(9, soma);		
+	}
+	
+	@Test
+	public void testSubtraiDoisNumeros() {
+		int subtracao = calc.subtracao(10, 5);
+		assertEquals(5, subtracao);
 	}
 	
 	@Test
