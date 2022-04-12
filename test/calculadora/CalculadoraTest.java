@@ -1,6 +1,5 @@
 package calculadora;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -72,6 +71,24 @@ public class CalculadoraTest {
 	public void testEhPositivo() {
 		boolean ehPositivo = calc.ehPositivo(10);
 		assertTrue(ehPositivo);
+	}
+	
+	@Test
+	public void testComparaAMaiorQueB() {
+		int compara = calc.compara(10, 5);
+		assertTrue(compara == 1);
+	}
+	
+	@Test
+	public void testComparaAMenorQueB() {
+		int compara = calc.compara(5, 10);
+		assertTrue(compara == -1);
+	}
+	
+	@Test
+	public void testComparaAIgualB() {
+		int compara = calc.compara(5, 5);
+		assertTrue(compara == 0);
 	}
 	
 }
