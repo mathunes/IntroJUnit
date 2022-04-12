@@ -1,11 +1,14 @@
 package carrinho;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import produto.Produto;
+import produto.ProdutoNaoEncontradoException;
 
 public class CarrinhoTest {
 
@@ -23,6 +26,25 @@ public class CarrinhoTest {
 		carrinho.addItem(produto1);
 		
 		assertTrue(1 == carrinho.getQtdeItems());
+	}
+	
+	@Test
+	public void testAdicionarDoisProdutos() {
+		Produto produto1 = new Produto("Título produto 1", 100.00);
+		Produto produto2 = new Produto("Título produto 2", 200.00);
+		
+		carrinho.addItem(produto1);
+		carrinho.addItem(produto2);
+		
+		assertTrue(2 == carrinho.getQtdeItems());
+	}
+	
+	@Test
+	public void testRemoverDeCarrinhoVazio() {
+		Produto produto1 = new Produto("Título produto 1", 100.00);
+		
+		assertThrows(ProdutoNaoEncontradoException.class,
+				() -> carrinho.removeItem(produto1));
 	}
 	
 }
